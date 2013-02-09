@@ -1,0 +1,14 @@
+{
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/harikt/Aura.Input"
+        }
+    ],
+    "require": {
+        "aura/view": "dev-develop",
+        "aura/input": "dev-iterator",
+        "aura/filter": "dev-develop"
+    }
+}
