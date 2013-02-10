@@ -21,7 +21,5 @@ class ContactForm extends Form
         $this->setField('email');
         $this->setField('url');
         $this->setField('message', 'textarea');
-        $submit = $this->setField('submit', 'submit');
-        $this->setValues(['submit' => 'send']);
     }
 }
