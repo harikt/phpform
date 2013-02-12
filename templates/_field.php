@@ -1,14 +1,21 @@
 <?php
-/*
-$field = $form->getField($this->name);
+$field = $this->form->getField($this->name);
+$value = isset($this->values[$this->name]) ? $this->values[$this->name] : null;
 $all = array_merge(
     [
         'name' => $this->name,
-        'value' => $this->values[$name],
+        'value' => $value,
         'label' => '',
     ],
     $field
 );
-echo $this->field($all) . PHP_EOL;
-*/
-echo $item;
+echo $this->field($all);
+$errors = $this->form->getMessages($this->name);
+if ($errors) {
+    echo '<ul>';
+    foreach ($errors as $error) {
+        echo '<li>' . $error . '</li>';
+    }
+    echo '</ul>';
+}
+?>

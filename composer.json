@@ -1,8 +1,8 @@
 {
     "minimum-stability": "dev",
     "require": {
-        "aura/view": "dev-develop",
         "aura/input": "dev-develop",
-        "aura/filter": "dev-develop"
+        "aura/filter": "dev-develop",
+        "aura/view": "dev-nonescape"
     }
 }
