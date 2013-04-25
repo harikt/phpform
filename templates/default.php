@@ -5,16 +5,13 @@
 <body>
     <form method="post" action="" enctype="multipart/form-data" >
         <table cellpadding="0" cellspacing="0">
-<?php
-    $values = $this->form->getValues();
-?>
             <tr>
                 <td>Name : </td>
                 <td>
                 <?php
+                    echo $this->field($this->form->get('name'));
                     $data = [
                         'form' => $this->form,
-                        'values' => $values,
                         'name' => 'name'
                     ];
                     echo $this->partial('_field', $data);
@@ -24,10 +21,10 @@
             <tr>
                 <td>Email : </td>
                 <td>
-                <?php 
+                <?php
+                    echo $this->field($this->form->get('email'));
                     $data = [
                         'form' => $this->form,
-                        'values' => $values,
                         'name' => 'email'
                     ];
                     echo $this->partial('_field', $data);
@@ -37,10 +34,10 @@
             <tr>
                 <td>Url : </td>
                 <td>
-                <?php 
+                <?php
+                    echo $this->field($this->form->get('url'));
                     $data = [
                         'form' => $this->form,
-                        'values' => $values,
                         'name' => 'url'
                     ];
                     echo $this->partial('_field', $data);
@@ -50,10 +47,10 @@
             <tr>
                 <td>Message : </td>
                 <td>
-                <?php 
+                <?php
+                    echo $this->field($this->form->get('message'));
                     $data = [
                         'form' => $this->form,
-                        'values' => $values,
                         'name' => 'message'
                     ];
                     echo $this->partial('_field', $data);
@@ -62,7 +59,9 @@
             </tr>
             <tr>
                 <td colspan="2">
-                <?php echo $this->input(['type' => 'submit', 'name' => 'submit', 'value' => 'send']); ?>
+                <?php 
+                echo $this->field($this->form->get('submit'));
+                //echo $this->input(['type' => 'submit', 'name' => 'submit', 'value' => 'send']); ?>
                 </td>
             </tr>
         </table>
