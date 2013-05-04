@@ -30,7 +30,8 @@ $form = new Domicile\Example\ContactForm(new Builder, $filter);
 $template = require $rootpath . '/vendor/aura/view/scripts/instance.php';
 
 if ($_POST && $_POST['submit'] == 'send') {
-    $form->fill($_POST);
+    $data = $_POST;
+    $form->fill($data);
     if ($form->filter()) {
         // do what you need
         var_dump($data);
