@@ -61,7 +61,8 @@
                 <td colspan="2">
                 <?php 
                 echo $this->field($this->form->get('submit'));
-                //echo $this->input(['type' => 'submit', 'name' => 'submit', 'value' => 'send']); ?>
+                //echo $this->input(['type' => 'submit', 'name' => 'submit', 'value' => 'send']); 
+                ?>
                 </td>
             </tr>
         </table>

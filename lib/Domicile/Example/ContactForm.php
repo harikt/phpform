@@ -37,7 +37,7 @@ class ContactForm extends Form
         $filter->addSoftRule('name', $filter::IS, 'strlenMin', 4);
         $filter->addSoftRule('email', $filter::IS, 'email');
         $filter->addSoftRule('url', $filter::IS, 'url');
-        $filter->addSoftRule('message', $filter::FIX, 'string');
-        $filter->addSoftRule('message', $filter::FIX, 'strlenMin', 6);
+        $filter->addSoftRule('message', $filter::IS, 'string');
+        $filter->addSoftRule('message', $filter::IS, 'strlenMin', 6);
     }
 }

@@ -33,7 +33,8 @@ if ($_POST && $_POST['submit'] == 'send') {
     $data = $_POST;
     $form->fill($data);
     if ($form->filter()) {
-        // do what you need
+        //
+        echo "Yes successfully validated and filtered";
         var_dump($data);
         exit;
     }
