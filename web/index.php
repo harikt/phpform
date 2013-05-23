@@ -27,8 +27,6 @@ $filter = new Domicile\Example\Filter(
 
 $form = new Domicile\Example\ContactForm(new Builder, $filter);
 
-$template = require $rootpath . '/vendor/aura/view/scripts/instance.php';
-
 if ($_POST && $_POST['submit'] == 'send') {
     $data = $_POST;
     $form->fill($data);
@@ -40,14 +38,82 @@ if ($_POST && $_POST['submit'] == 'send') {
     }
 }
 
-// $form->setValues($post);
-$finder = $template->getTemplateFinder();
-// set the paths where templates can be found
-$finder->setPaths($templatesPath);
-
-$template->addData([
-    'form' => $form,
-    'title' => 'Demonstrate Aura Form',
+$helper = new Aura\View\HelperLocator([
+    'field'         => function () { 
+        return new Aura\View\Helper\Form\Field(
+            require dirname(__DIR__) . '/vendor/aura/view/scripts/field_registry.php'
+        ); 
+    },
+    'input'         => function () { return new Aura\View\Helper\Form\Input(
+            require dirname(__DIR__) . '/vendor/aura/view/scripts/input_registry.php'
+        ); 
+    },
+    'radios'        => function () { return new Aura\View\Helper\Form\Radios(new Aura\View\Helper\Form\Input\Checked); },
+    'repeat'         => function () { return new Aura\View\Helper\Form\Repeat(
+            require dirname(__DIR__) . '/vendor/aura/view/scripts/repeat_registry.php'
+        ); 
+    },
+    'select'        => function () { return new Aura\View\Helper\Form\Select; },
+    'textarea'      => function () { return new Aura\View\Helper\Form\Textarea; },
 ]);
 
-echo $template->fetch('default.php');
+$field = $helper->get('field');
+?>
+<html>
+<head>
+    <title>Aura Form, to make it standalone</title>
+</head>
+<body>
+    <form method="post" action="" enctype="multipart/form-data" >
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td>Name : </td>
+                <td>
+                <?php
+                    echo $field($form->get('name'));
+                    $name = 'name';
+                    include dirname(__DIR__) . '/templates/_field.php';
+                ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Email : </td>
+                <td>
+                <?php
+                    echo $field($form->get('email'));
+                    $name = 'email';
+                    include dirname(__DIR__) . '/templates/_field.php';
+                ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Url : </td>
+                <td>
+                <?php
+                    echo $field($form->get('url'));
+                    $name = 'url';
+                    include dirname(__DIR__) . '/templates/_field.php';
+                ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Message : </td>
+                <td>
+                <?php
+                    echo $field($form->get('message'));
+                    $name = 'message';
+                    include dirname(__DIR__) . '/templates/_field.php';
+                ?>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <?php 
+                echo $field($form->get('submit'));
+                ?>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

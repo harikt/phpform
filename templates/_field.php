@@ -1,5 +1,5 @@
 <?php
-$errors = $this->form->getMessages($this->name);
+$errors = $form->getMessages($name);
 if ($errors) {
     echo '<ul>';
     foreach ($errors as $error) {
