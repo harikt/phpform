@@ -58,6 +58,18 @@ $helper = new Aura\View\HelperLocator([
 ]);
 
 $field = $helper->get('field');
+function showFieldErrors($form, $name) {
+    $errors = $form->getMessages($name);
+    $str = '';
+    if ($errors) {
+        $str .= '<ul>';
+        foreach ($errors as $error) {
+            $str .= '<li>' . $error . '</li>';
+        }
+        $str .= '</ul>';
+    }
+    return $str;
+}
 ?>
 <html>
 <head>
@@ -71,8 +83,7 @@ $field = $helper->get('field');
                 <td>
                 <?php
                     echo $field($form->get('name'));
-                    $name = 'name';
-                    include dirname(__DIR__) . '/templates/_field.php';
+                    echo showFieldErrors($form, 'name');
                 ?>
                 </td>
             </tr>
@@ -81,8 +92,7 @@ $field = $helper->get('field');
                 <td>
                 <?php
                     echo $field($form->get('email'));
-                    $name = 'email';
-                    include dirname(__DIR__) . '/templates/_field.php';
+                    echo showFieldErrors($form, 'email');
                 ?>
                 </td>
             </tr>
@@ -91,8 +101,7 @@ $field = $helper->get('field');
                 <td>
                 <?php
                     echo $field($form->get('url'));
-                    $name = 'url';
-                    include dirname(__DIR__) . '/templates/_field.php';
+                    echo showFieldErrors($form, 'url');
                 ?>
                 </td>
             </tr>
@@ -101,8 +110,7 @@ $field = $helper->get('field');
                 <td>
                 <?php
                     echo $field($form->get('message'));
-                    $name = 'message';
-                    include dirname(__DIR__) . '/templates/_field.php';
+                    echo showFieldErrors($form, 'message');
                 ?>
                 </td>
             </tr>
