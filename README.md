@@ -1,18 +1,34 @@
+Standalone Form for PHP
+=======================
+
+The minimal stuff you need to create and validate your form. If you want to
+use a powerful validation and filtering use something like [Aura.Filter][] 
+or your favourite component that does it. You can see how you can do it
+in the example in master branch.
+
+The `composer.json` file
+
+```php
+{
+    "minimum-stability": "dev",
+    "require": {
+        "aura/input": "1.0.0-beta1",
+        "aura/view": "1.1.2"
+    }
+}
+```
+
+The page which you need to bring the form.
+
+```php
 <?php
-/*
- * 
- * @licence MIT
- * 
- * @author Hari K T
- * 
- */
 use Aura\Input\Builder;
 
 use Aura\Filter\RuleLocator;
 use Aura\Filter\Translator;
 use Aura\Input\Form;
 
-$loader = require dirname(__DIR__) . '/vendor/autoload.php';
+$loader = require __DIR__ . '/vendor/autoload.php';
 
 class ContactForm extends Form
 {
@@ -169,3 +185,4 @@ function showFieldErrors($form, $name) {
     </form>
 </body>
 </html>
+```
