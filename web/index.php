@@ -7,9 +7,7 @@
  * 
  */
 use Aura\Input\Builder;
-
-use Aura\Filter\RuleLocator;
-use Aura\Filter\Translator;
+use Aura\Input\Filter;
 use Aura\Input\Form;
 
 $loader = require dirname(__DIR__) . '/vendor/autoload.php';
@@ -69,7 +67,7 @@ class ContactForm extends Form
     }
 }
 
-$form = new ContactForm(new Builder(), new Aura\Input\Filter());
+$form = new ContactForm(new Builder(), new Filter());
 
 if ($_POST && $_POST['submit'] == 'send') {
     $data = $_POST;
