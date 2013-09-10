@@ -95,8 +95,10 @@ with fields <code>name</code>, <code>email</code>, <code>url</code> and <code>me
 <div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="cm">/*</span>
 <span class="cm"> * Contact Form class</span>
+<span class="cm"> *</span>
+<span class="cm"> * Note : In case if you have not imported Form class, you can do via</span>
+<span class="cm"> * use Aura\Input\Form;</span>
 <span class="cm"> */</span>
-<span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
 <span class="p">{</span>
@@ -173,9 +175,11 @@ of type <code>Aura\Input\FilterInterface</code>. As we are using the base filter
 pass <code>Aura\Input\Filter</code>.</p>
 
 <div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">use</span> <span class="nx">Aura\Input\Builder</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
-
+<span class="sd">/**</span>
+<span class="sd"> * Note : In case if you have not imported Builder, and Filter class, you can do via</span>
+<span class="sd"> * use Aura\Input\Builder;</span>
+<span class="sd"> * use Aura\Input\Filter;</span>
+<span class="sd"> */</span>
 <span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">Filter</span><span class="p">());</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span> <span class="o">&amp;&amp;</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'submit'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'send'</span><span class="p">)</span> <span class="p">{</span>
