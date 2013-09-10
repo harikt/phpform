@@ -40,10 +40,9 @@ or use your favourite component that does the filtering/validation. You can see 
 
 <p>The <code>composer.json</code> file</p>
 
-<div class="highlight"><pre><span class="p">{</span>
-    <span class="s2">"minimum-stability"</span><span class="o">:</span> <span class="s2">"dev"</span><span class="p">,</span>
+<div class="highlight highlight-php"><pre><span class="p">{</span>
     <span class="s2">"require"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"aura/input"</span><span class="o">:</span> <span class="s2">"1.0.0-beta1"</span><span class="p">,</span>
+        <span class="s2">"aura/input"</span><span class="o">:</span> <span class="s2">"1.0.0"</span><span class="p">,</span>
         <span class="s2">"aura/view"</span><span class="o">:</span> <span class="s2">"1.1.2"</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -51,7 +50,7 @@ or use your favourite component that does the filtering/validation. You can see 
 
 <p>The page which you need to bring the form.</p>
 
-<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">use</span> <span class="nx">Aura\Input\Builder</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
@@ -93,7 +92,7 @@ or use your favourite component that does the filtering/validation. You can see 
 <p>To create your form extend the class with <code>Aura\Input\Form</code> . Here is an example of contact form
 with fields <code>name</code>, <code>email</code>, <code>url</code> and <code>message</code> in it.</p>
 
-<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="cm">/*</span>
 <span class="cm"> * Contact Form class</span>
 <span class="cm"> */</span>
@@ -171,7 +170,7 @@ with fields <code>name</code>, <code>email</code>, <code>url</code> and <code>me
 of type <code>Aura\Input\FilterInterface</code>. As we are using the base filter of Aura.Input
 pass <code>Aura\Input\Filter</code>.</p>
 
-<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">Filter</span><span class="p">());</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span> <span class="o">&amp;&amp;</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'submit'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'send'</span><span class="p">)</span> <span class="p">{</span>
@@ -205,7 +204,7 @@ pass <code>Aura\Input\Filter</code>.</p>
 
 <p>In order to render a field, you can use <code>$field($form-&gt;get('name'))</code>.</p>
 
-<div class="highlight"><pre><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<div class="highlight highlight-php"><pre><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Aura</span> <span class="nx">Form</span><span class="p">,</span> <span class="nx">to</span> <span class="nx">make</span> <span class="nx">it</span> <span class="nx">standalone</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
@@ -271,7 +270,17 @@ pass <code>Aura\Input\Filter</code>.</p>
       </footer>
     </div>
 
-    
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-5998889-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
 
   </body>
 </html>
