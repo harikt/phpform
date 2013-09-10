@@ -10,9 +10,8 @@ The `composer.json` file
 
 ```php
 {
-    "minimum-stability": "dev",
     "require": {
-        "aura/input": "1.0.0-beta1",
+        "aura/input": "1.0.0",
         "aura/view": "1.1.2"
     }
 }
