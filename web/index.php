@@ -1,14 +1,15 @@
 <?php
 /*
- * 
+ *
  * @licence MIT
- * 
+ *
  * @author Hari K T
- * 
+ *
  */
 use Aura\Input\Builder;
 use Aura\Input\Filter;
 use Aura\Input\Form;
+use Aura\Html\HelperLocatorFactory;
 
 $loader = require dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -39,9 +40,9 @@ class ContactForm extends Form
             ]);
         $this->setField('submit', 'submit')
             ->setAttribs(['value' => 'send']);
-        
+
         $filter = $this->getFilter();
-        
+
         $filter->setRule(
             'name',
             'Name must be alphabetic only.',
@@ -80,26 +81,9 @@ if ($_POST && $_POST['submit'] == 'send') {
     }
 }
 
-$helper = new Aura\View\HelperLocator([
-    'field'         => function () { 
-        return new Aura\View\Helper\Form\Field(
-            require dirname(__DIR__) . '/vendor/aura/view/scripts/field_registry.php'
-        ); 
-    },
-    'input'         => function () { return new Aura\View\Helper\Form\Input(
-            require dirname(__DIR__) . '/vendor/aura/view/scripts/input_registry.php'
-        ); 
-    },
-    'radios'        => function () { return new Aura\View\Helper\Form\Radios(new Aura\View\Helper\Form\Input\Checked); },
-    'repeat'         => function () { return new Aura\View\Helper\Form\Repeat(
-            require dirname(__DIR__) . '/vendor/aura/view/scripts/repeat_registry.php'
-        ); 
-    },
-    'select'        => function () { return new Aura\View\Helper\Form\Select; },
-    'textarea'      => function () { return new Aura\View\Helper\Form\Textarea; },
-]);
+$factory = new HelperLocatorFactory();
+$helper = $factory->newInstance();
 
-$field = $helper->get('field');
 function showFieldErrors($form, $name) {
     $errors = $form->getMessages($name);
     $str = '';
@@ -124,7 +108,7 @@ function showFieldErrors($form, $name) {
                 <td>Name : </td>
                 <td>
                 <?php
-                    echo $field($form->get('name'));
+                    echo $helper->input($form->get('name'));
                     echo showFieldErrors($form, 'name');
                 ?>
                 </td>
@@ -133,7 +117,7 @@ function showFieldErrors($form, $name) {
                 <td>Email : </td>
                 <td>
                 <?php
-                    echo $field($form->get('email'));
+                    echo $helper->input($form->get('email'));
                     echo showFieldErrors($form, 'email');
                 ?>
                 </td>
@@ -142,7 +126,7 @@ function showFieldErrors($form, $name) {
                 <td>Url : </td>
                 <td>
                 <?php
-                    echo $field($form->get('url'));
+                    echo $helper->input($form->get('url'));
                     echo showFieldErrors($form, 'url');
                 ?>
                 </td>
@@ -151,15 +135,15 @@ function showFieldErrors($form, $name) {
                 <td>Message : </td>
                 <td>
                 <?php
-                    echo $field($form->get('message'));
+                    echo $helper->input($form->get('message'));
                     echo showFieldErrors($form, 'message');
                 ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                <?php 
-                echo $field($form->get('submit'));
+                <?php
+                echo $helper->input($form->get('submit'));
                 ?>
                 </td>
             </tr>
