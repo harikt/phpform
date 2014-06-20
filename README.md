@@ -26,7 +26,7 @@ use Aura\Input\Form;
 use Aura\Html\HelperLocatorFactory;
 
 $loader = require dirname(__DIR__) . '/vendor/autoload.php';
-```php
+```
 
 ## Creating your Form class
 
