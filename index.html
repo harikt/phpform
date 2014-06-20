@@ -56,15 +56,15 @@ in the example in master branch.</p>
 <span class="k">use</span> <span class="nx">Aura\Html\HelperLocatorFactory</span><span class="p">;</span>
 
 <span class="nv">$loader</span> <span class="o">=</span> <span class="k">require</span> <span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'/vendor/autoload.php'</span><span class="p">;</span>
-<span class="sb">```php</span>
+</pre></div>
 
-<span class="sb">## Creating your Form class</span>
+<h2>
+<a name="creating-your-form-class" class="anchor" href="#creating-your-form-class"><span class="octicon octicon-link"></span></a>Creating your Form class</h2>
 
-<span class="sb">To create your form extend the class with Aura\Input\Form . </span>
-<span class="sb">Here is an example of contact form with fields name, email, url and message in it.</span>
+<p>To create your form extend the class with Aura\Input\Form . 
+Here is an example of contact form with fields name, email, url and message in it.</p>
 
-<span class="sb">```</span><span class="nx">php</span>
-<span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
+<div class="highlight highlight-php"><pre><span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
     <span class="p">{</span>
