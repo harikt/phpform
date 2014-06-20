@@ -19,22 +19,29 @@ class ContactForm extends Form
     {
         $this->setField('name')
             ->setAttribs([
-                'id' => 'name',
+                'id' => 'contact[name]',
+                'name' => 'contact[name]',
                 'size' => 20,
                 'maxlength' => 20,
             ]);
         $this->setField('email')
             ->setAttribs([
+                'id' => 'contact[email]',
+                'name' => 'contact[email]',
                 'size' => 20,
                 'maxlength' => 20,
             ]);
         $this->setField('url')
             ->setAttribs([
+                'id' => 'contact[url]',
+                'name' => 'contact[url]',
                 'size' => 20,
                 'maxlength' => 20,
             ]);
         $this->setField('message', 'textarea')
             ->setAttribs([
+                'id' => 'contact[message]',
+                'name' => 'contact[message]',
                 'cols' => 40,
                 'rows' => 5,
             ]);
@@ -51,34 +58,45 @@ class ContactForm extends Form
             }
         );
 
-        $filter->setRule('email', 'Enter a valid email address', function ($value) {
-            return filter_var($value, FILTER_VALIDATE_EMAIL);
-        });
-
-        $filter->setRule('url', 'Enter a valid url', function ($value) {
-            return filter_var($value, FILTER_VALIDATE_URL);
-        });
-
-        $filter->setRule('message', 'Message should be more than 7 characters', function ($value) {
-            if (strlen($value) > 7) {
-                return true;
+        $filter->setRule(
+            'email', 
+            'Enter a valid email address', 
+            function ($value) {
+                return filter_var($value, FILTER_VALIDATE_EMAIL);
             }
-            return false;
-        });
+        );
+
+        $filter->setRule(
+            'url', 
+            'Enter a valid url', 
+            function ($value) {
+                return filter_var($value, FILTER_VALIDATE_URL);
+            }
+        );
+
+        $filter->setRule(
+            'message', 
+            'Message should be more than 7 characters', 
+            function ($value) {
+                if (strlen($value) > 7) {
+                    return true;
+                }
+                return false;
+            }
+        );
     }
 }
 
 $form = new ContactForm(new Builder(), new Filter());
 
-if ($_POST && $_POST['submit'] == 'send') {
-    $data = $_POST;
+if (isset($_POST['submit']) && $_POST['submit'] == 'send') {    
+    $data = $_POST['contact'];
     $form->fill($data);
     if ($form->filter()) {
-        //
         echo "Yes successfully validated and filtered";
         var_dump($data);
-        exit;
-    }
+        exit;        
+    }    
 }
 
 $factory = new HelperLocatorFactory();
