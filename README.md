@@ -12,7 +12,7 @@ The `composer.json` file
 {
     "require": {
         "aura/input": ">=1.0.0, <=2.0.0",
-        "aura/html": "2.0.0-beta1"
+        "aura/html": "2.0.*"
     }
 }
 ```
@@ -122,8 +122,8 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'send') {
     if ($form->filter()) {
         echo "Yes successfully validated and filtered";
         var_dump($data);
-        exit;        
-    }    
+        exit;
+    }
 }
 
 $factory = new HelperLocatorFactory();
