@@ -43,7 +43,7 @@ in the example in master branch.</p>
 <div class="highlight highlight-php"><pre><span class="p">{</span>
     <span class="s2">"require"</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">"aura/input"</span><span class="o">:</span> <span class="s2">"&gt;=1.0.0, &lt;=2.0.0"</span><span class="p">,</span>
-        <span class="s2">"aura/html"</span><span class="o">:</span> <span class="s2">"2.0.0-beta1"</span>
+        <span class="s2">"aura/html"</span><span class="o">:</span> <span class="s2">"2.0.*"</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -151,8 +151,8 @@ As we are using the base filter of Aura.Input pass <code>Aura\Input\Filter</code
     <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">())</span> <span class="p">{</span>
         <span class="k">echo</span> <span class="s2">"Yes successfully validated and filtered"</span><span class="p">;</span>
         <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
-        <span class="k">exit</span><span class="p">;</span>        
-    <span class="p">}</span>    
+        <span class="k">exit</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="nv">$factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HelperLocatorFactory</span><span class="p">();</span>
